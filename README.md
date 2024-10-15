@@ -9,3 +9,7 @@
 ### Operações CRUD (Create, Read, Update, Delete):
 * Implementando funções para inserir, visualizar, atualizar e excluir itens do inventário.
 * Integrando operações do banco de dados de maneira eficiente usando SQLite em Python.
+
+### Interface Gráfica com Tkinter:
+* Usando uma interface gráfica amigável ultilizando Tkinter para interação do usuário.
+* Desenvolvendo campos de entrada e botões para facilitar a entrada e manipulação de dados.
