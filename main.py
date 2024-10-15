@@ -273,7 +273,8 @@ l_total = Label(
     frameMeio,
     text="",
     width=14,
-    height=3,
+    height=2,
+    pady=5,
     anchor=CENTER,
     font=("Ivy 17 bold"),
     bg=co7,
@@ -297,13 +298,14 @@ l_qtd = Label(
     frameMeio,
     text="",
     width=14,
-    height=3,
+    height=2,
+    pady= 5,
     anchor=CENTER,
     font=("Ivy 17 bold"),
     bg=co7,
     fg=co1,
 )
-l_qtd.place(x=450, y=112)
+l_qtd.place(x=450, y=92)
 
 l_titulo_qtd = Label(
     frameMeio,
@@ -314,7 +316,7 @@ l_titulo_qtd = Label(
     bg=co7,
     fg=co1,
 )
-l_titulo_qtd.place(x=450, y=112)
+l_titulo_qtd.place(x=450, y=92)
 
 # Criando uma visualização em árvore com barras de rolagem duplas
 tabela_head = [
@@ -363,7 +365,7 @@ for col in tabela_head:
 for item in lista_itens:
     tree.insert("", "end", values=item)
 
-quantidade = []
+quantidade = [88888,5555]
 for iten in lista_itens:
     quantidade.append(iten[6])
 
