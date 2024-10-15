@@ -1,6 +1,6 @@
 # Sistema de cadastro em Python
 
-<!-- ![This is an alt text.](/image/ "This is a sample image.") -->
+![Imagem de um print.](/images/screen.png "print de uma imagem.")
 ### O que é o Inventario Doméstico
 _**Home Inventory** é uma classe de aplicativo de software de rastreamento de ativos que permite catalogar os detalhes
 importantes de todos os seus ativos pessoas. Ele rastreia os locais e o valor de cada um de seus itens com o clique de um mouse._
