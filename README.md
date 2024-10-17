@@ -2,7 +2,7 @@
 
 ### O que é o Inventario Doméstico
 _**Home Inventory** é uma classe de aplicativo de software de rastreamento de ativos que permite catalogar os detalhes
-importantes de todos os seus ativos pessoas. Ele rastreia os locais e o valor de cada um de seus itens com o clique de um mouse._
+importantes de todos os seus ativos pessoais. Ele rastreia os locais e o valor de cada um de seus itens com o clique de um mouse._
 
 ### Bibliotecas ultilizadas
 #### Tkenter - **Tkinter é a biblioteca padrão do Python para criação de interfaces gráficas. Ela já vem embutida com o Python**

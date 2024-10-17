@@ -66,6 +66,8 @@ frameBaixo.grid(row=2, column=0, pady=0, padx=1, sticky=NSEW)
 # Criando funções ---------------------------------------------------
 # função inserir
 global tree
+
+
 def inserir():
     global imagem, imagem_string, l_imagem
 
@@ -100,8 +102,92 @@ def inserir():
     mostrar()
 
 
+# função atualizar
+def atualizar():
+    global imagem, imagem_string, l_imagem
+    try:
+        treev_dados = tree.focus()
+        treev_dicionario = tree.item(treev_dados)
+        treev_lista = treev_dicionario["values"]
+
+        valor = treev_lista[0]
+
+        e_nome.delete(0, "end")
+        e_local.delete(0, "end")
+        e_descricao.delete(0, "end")
+        e_modelo.delete(0, "end")
+        e_cal.delete(0, "end")
+        e_valor.delete(0, "end")
+        e_serial.delete(0, "end")
+
+        id = int(treev_lista[0])
+        e_nome.insert(0, treev_lista[1])
+        e_local.insert(0, treev_lista[2])
+        e_descricao.insert(0, treev_lista[3])
+        e_modelo.insert(0, treev_lista[4])
+        e_cal.insert(0, treev_lista[5])
+        e_valor.insert(0, treev_lista[6])
+        e_serial.insert(0, treev_lista[7])
+        imagem_string = treev_lista[8]
+
+        def update():
+            global imagem, imagem_string, l_imagem
+
+            nome = e_nome.get()
+            local = e_local.get()
+            descricao = e_descricao.get()
+            marca = e_modelo.get()
+            data = e_cal.get()
+            valor = e_valor.get()
+            serie = e_serial.get()
+            imagem = imagem_string
+
+            if imagem == "":
+                imagem = e_serial.insert(0, treev_lista[7])
+
+            lista_atualizar = [
+                nome,
+                local,
+                descricao,
+                marca,
+                data,
+                valor,
+                serie,
+                imagem,
+                id,
+            ]
+
+            for i in lista_atualizar:
+                if i == "":
+                    messagebox.showerror("Erro", "Preencha todos os campos!")
+                    return
+                
+            atualizar_form(lista_atualizar)
+            messagebox.showinfo("Sucesso", "Os dados foram atualizados com sucesso!")
+
+            e_nome.delete(0, "end")
+            e_local.delete(0, "end")
+            e_descricao.delete(0, "end")
+            e_modelo.delete(0, "end")
+            e_cal.delete(0, "end")
+            e_valor.delete(0, "end")
+            e_serial.delete(0, "end")
+            
+            b_confirmar.destroy()
+            
+            mostrar()
+            
+            # Botao confimar
+        b_confirmar = Button(frameMeio, command=update, width=13, text="Confirmar".upper(), overrelief=RIDGE, font=("Ivy 8 bold"), bg=co2, fg=co1,)
+        b_confirmar.place(x=330, y=190)
+
+    except IndexError:
+        messagebox.showerror("Erro", "Seleciona um dos dados na tabela!")
+
+
 # função para escolher imagem
 global imagem, imagem_string, l_imagem
+
 
 def escolher_imagem():
     global imagem, imagem_string, l_imagem
@@ -122,16 +208,17 @@ def escolher_imagem():
     )
     l_imagem.place(x=670, y=10)
 
+
 # função para ver imagem
 def ver_imagem():
     global imagem, imagem_string, l_imagem
-    
+
     treev_dados = tree.focus()
     treev_dicionario = tree.item(treev_dados)
     treev_lista = treev_dicionario["values"]
-    
+
     valor = [int(treev_lista[0])]
-    
+
     iten = ver_item(valor)
     imagem = iten[0][8]
     # abrindo imagem-----------------------------
@@ -146,6 +233,7 @@ def ver_imagem():
         fg=co4,
     )
     l_imagem.place(x=670, y=10)
+
 
 # Trabalhando no frames cima ##################################################
 # abrindo imagem-----------------------------
@@ -307,7 +395,7 @@ img_update = ImageTk.PhotoImage(img_update)
 
 b_update = Button(
     frameMeio,
-    command=atualizar_form,
+    command=atualizar,
     image=img_update,
     width=95,
     text="  Atualizar".upper(),
@@ -354,7 +442,7 @@ b_item = Button(
     compound=LEFT,
     anchor=NW,
     overrelief=RIDGE,
-    font=("Ivy 8"),
+    font=("Ivy 8 bold"),
     bg=co1,
     fg=co0,
 )
@@ -471,7 +559,7 @@ def mostrar():
         tree.insert("", "end", values=item)
 
     quantidade = []
-    
+
     for iten in lista_itens:
         quantidade.append(iten[6])
 
