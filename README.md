@@ -15,7 +15,6 @@ pip install tkcalendar
 pip install pillow
  ```
 
-
 ### Banco de Dados em Python:
 * Criando um banco de dados SQLite para armazenar informações do inventário doméstico.
 * implementando uma estrutura no banco de dados com uma tabela simples para gerenciar itens.
@@ -27,3 +26,8 @@ pip install pillow
 ### Interface Gráfica com Tkinter:
 * Usando uma interface gráfica amigável ultilizando Tkinter para interação do usuário.
 * Desenvolvendo campos de entrada e botões para facilitar a entrada e manipulação de dados.
+
+ ### Para rodar o projeto
+ ```bash
+ py main.py
+ ```
