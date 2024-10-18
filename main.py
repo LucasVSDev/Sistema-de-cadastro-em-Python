@@ -184,6 +184,20 @@ def atualizar():
     except IndexError:
         messagebox.showerror("Erro", "Seleciona um dos dados na tabela!")
 
+def deletar():
+    try:
+        treev_dados = tree.focus()
+        treev_dicionario = tree.item(treev_dados)
+        treev_lista = treev_dicionario["values"]
+        valor = treev_lista[0]
+        
+        deletar_form([valor])
+        
+        messagebox.showinfo("Sucesso", "Os dados foram deletados com sucesso!")
+        mostrar()
+        
+    except IndexError:
+        messagebox.showerror("Erro", "Seleciona um dos dados na tabela!")
 
 # função para escolher imagem
 global imagem, imagem_string, l_imagem
@@ -415,7 +429,7 @@ img_delete = ImageTk.PhotoImage(img_delete)
 
 b_delete = Button(
     frameMeio,
-    command=deletar_form,
+    command=deletar,
     image=img_delete,
     width=95,
     text="  Deletar".upper(),
